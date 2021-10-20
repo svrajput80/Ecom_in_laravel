@@ -106,4 +106,8 @@ class ProductController extends Controller
  
          return view('myorders',['orders'=>$orders]);
     }
+    function list()
+    {
+        return Product::all();
+    }
 }
