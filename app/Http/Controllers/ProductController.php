@@ -146,4 +146,17 @@ class ProductController extends Controller
             return["Result"=>"Fail"];
         }
     }
+    function delete(Request $req)
+    {
+        $products = Product::find($req->id);
+        $result = $products->delete();
+        if($result)
+        {
+            return["Result"=>"Success"];
+        }
+        else
+        {
+            return["Result"=>"Fail"];
+        }
+    }
 }
