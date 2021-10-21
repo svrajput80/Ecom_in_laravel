@@ -110,4 +110,40 @@ class ProductController extends Controller
     {
         return Product::all();
     }
+    function add(Request $req)
+    {
+        $products = new Product;
+        $products -> name = $req -> name;
+        $products -> price = $req -> price;
+        $products -> description = $req -> description;
+        $products -> category = $req -> category;
+        $products -> gallery = $req -> gallery;
+        $result = $products -> save();
+        if($result)
+        {
+            return["Result"=>"Success"];
+        }
+        else
+        {
+            return["Result"=>"Fail"];
+        }   
+    }
+    function update(Request $req)
+    {
+        $products = Product::find($req->id);
+        $products -> name = $req -> name;
+        $products -> price = $req -> price;
+        $products -> description = $req -> description;
+        $products -> category = $req -> category;
+        $products -> gallery = $req -> gallery;
+        $result = $products -> save();
+        if($result)
+        {
+            return["Result"=>"Success"];
+        }
+        else
+        {
+            return["Result"=>"Fail"];
+        }
+    }
 }
