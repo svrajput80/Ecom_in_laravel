@@ -19,4 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('list',[ProductController::class, 'list']); 
+Route::get('list',[ProductController::class, 'list']);  
+Route::post('add',[ProductController::class, 'add']);  
+Route::put('update',[ProductController::class, 'update']);
+Route::delete('delete',[ProductController::class, 'delete']);
