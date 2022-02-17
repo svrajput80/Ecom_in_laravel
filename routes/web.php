@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,10 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 Route::get('/logout', function () {
@@ -35,8 +39,8 @@ Route::get("removecart/{id}",[ProductController::class,'removeCart']);
 Route::get("ordernow",[ProductController::class,'orderNow']); 
 Route::post("orderplace",[ProductController::class,'orderPlace']);
 Route::get("myorders",[ProductController::class,'myOrders']);
- 
-
+Route::get('/send-markdown-mail', [MailController::class, 'sendOfferMail']);
+Route::post("/contact",[MailController::class, 'contact']);
 
 
 

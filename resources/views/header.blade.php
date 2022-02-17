@@ -41,6 +41,7 @@ if(Session::has('user'))
             <ul class="dropdown-menu">
               <li><a href="/logout">Logout</a></li>
             </ul>
+            <li><a href="/contact">Contact Us</a></li>
           </li>
           @else
           <li><a href="/login">Login</a></li>
